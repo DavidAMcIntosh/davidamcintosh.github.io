@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GLHF - Duel Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+
+<body class="has-background-grey-darker" onload="refresh()">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <h1 class="title">GLHF</h1>
+          </a>
+      
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" onclick="rollDice()">
+              Dice: <p id="dice"></p>
+            </a>
+
+            <a class="navbar-item" onclick="flipCoin()">
+                Coin: <p id="coin"></p>
+              </a>
+      
+            <a class="navbar-item" onclick="refresh()">
+              Reset
+            </a>
+            <a class="navbar-item" onclick="clearCalc()">
+                Clear Calculator
+              </a>
+          </div>
+        </div>
+      </nav>
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Me -->
+            <div class="columns is-mobile">
+                <div class="column">
+                    <progress id="my-lp-progress" class="progress is-success"  max="8000"></progress>
+                    <input class="input is-rounded has-text-centered" type="text" placeholder="Me">
+                    <div class="content has-text-centered is-size-3-desktop is-size-3-mobile">
+                        <p id="my-lp" class="has-text-white"></p>
+                        <div class="buttons are-medium is-centered">
+                            <button class="button is-outlined is-rounded is-success" onclick="myGain()">Gain</button>
+                            <button class="button is-outlined is-rounded is-danger" onclick="myLoss()">Lose</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Opponents-->
+                <div class="column">
+                    <progress id="opponent-lp-progress" class="progress is-success" max="8000"></progress>
+                    <input class="input is-rounded has-text-centered" type="text" placeholder="You">
+                    <div class="content has-text-centered  is-size-3-desktop is-size-3-mobile">
+                        <p id="opponent-lp" class="has-text-white"></p>
+                        <div class="buttons are-medium content is-centered">
+                            <button class="button is-outlined is-rounded is-success" onclick="opponentGain()" >Gain</button>
+                            <button class="button is-outlined is-rounded is-danger" onclick="opponentLoss()">Lose</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content has-text-centered  is-size-3-desktop is-size-3-mobile">
+                <p id="calc-val" class="has-text-white"></p>
+            </div>
+            <section class="section">
+                <div class="columns is-centered is-mobile">
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="1" onclick="updateValue(this.value)">1</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="2" onclick="updateValue(this.value)">2</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="3" onclick="updateValue(this.value)">3</button>
+                    </div>
+                </div>
+                <div class="columns is-centered is-mobile">
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="4" onclick="updateValue(this.value)">4</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="5" onclick="updateValue(this.value)">5</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="6" onclick="updateValue(this.value)">6</button>
+                    </div>
+                </div>
+                <div class="columns is-centered is-mobile">
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="7" onclick="updateValue(this.value)">7</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="8" onclick="updateValue(this.value)">8</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="9" onclick="updateValue(this.value)">9</button>
+                    </div>
+                </div>
+                <div class="columns is-centered is-mobile">
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="0" onclick="updateValue(this.value)">0</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="00" onclick="updateValue(this.value)">00</button>
+                    </div>
+                    <div class="column">
+                        <button class="button is-outlined is-rounded is-fullwidth is-primary" value="000" onclick="updateValue(this.value)">000</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
